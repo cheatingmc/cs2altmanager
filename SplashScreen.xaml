@@ -1,0 +1,66 @@
+<Window x:Class="CacheLoginToolWPF.SplashScreen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="CacheLoginTool" 
+        Height="400" Width="600"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent"
+        WindowStartupLocation="CenterScreen"
+        ShowInTaskbar="False"
+        ResizeMode="NoResize">
+    <Border CornerRadius="0" 
+            Background="#000000"
+            BorderBrush="#1A1A1A"
+            BorderThickness="1">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Row="0" 
+                       VerticalAlignment="Center" 
+                       HorizontalAlignment="Center"
+                       Margin="40">
+                <Image Width="80" Height="80" 
+                       Margin="0,0,0,24"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Stretch="Uniform">
+                    <Image.Source>
+                        <BitmapImage UriSource="pack://application:,,,/new.png" 
+                                     DecodeFailed="Image_DecodeFailed"/>
+                    </Image.Source>
+                </Image>
+                <TextBlock Text="CS2 Alt Manager" 
+                          FontSize="22" 
+                          FontWeight="Light"
+                          Foreground="#FFFFFF"
+                          HorizontalAlignment="Center"
+                          FontFamily="{StaticResource PoppinsFont}"/>
+            </StackPanel>
+
+            <TextBlock x:Name="StatusText" 
+                      Grid.Row="1"
+                      Text="Initializing..." 
+                      FontSize="13" 
+                      FontWeight="Normal"
+                      Foreground="#808080"
+                      HorizontalAlignment="Center"
+                      Margin="0,0,0,20"
+                      FontFamily="{StaticResource PoppinsFont}"/>
+
+            <ProgressBar x:Name="ProgressBar" 
+                        Grid.Row="2"
+                        Height="2" 
+                        Margin="40,0,40,40"
+                        Background="#1A1A1A"
+                        Foreground="#FFFFFF"
+                        IsIndeterminate="True"
+                        BorderThickness="0"/>
+        </Grid>
+    </Border>
+</Window>
+
