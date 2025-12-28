@@ -336,7 +336,8 @@ namespace CacheLoginToolWPF
                 Width = 75,
                 Height = 30,
                 Margin = new Thickness(5, 0, 0, 0),
-                Style = (Style)FindResource("PrimaryButtonStyle")
+                Style = (Style)FindResource("PrimaryButtonStyle"),
+                IsDefault = true
             };
 
             var cancelButton = new System.Windows.Controls.Button
@@ -378,6 +379,15 @@ namespace CacheLoginToolWPF
             {
                 inputDialog.DialogResult = false;
                 inputDialog.Close();
+            };
+
+            textBox.KeyDown += (s, args) =>
+            {
+                if (args.Key == System.Windows.Input.Key.Enter)
+                {
+                    okButton.RaiseEvent(new RoutedEventArgs(System.Windows.Controls.Button.ClickEvent));
+                    args.Handled = true;
+                }
             };
 
             buttonPanel.Children.Add(okButton);
